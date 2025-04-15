@@ -1,0 +1,22 @@
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+}
+
+body::before {
+    left: 0;
+    background-image: url('path_to/ornament_right.png'); /* Правая часть орнамента для левой стороны */
+}
+
+body::after {
+    right: 0;
+    background-image: url('path_to/ornament_left.png'); /* Левая часть орнамента для правой стороны */
+}
