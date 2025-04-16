@@ -65,6 +65,17 @@
             width: 100%;
             margin-top: 20px;
         }
+
+        /* Адаптивные стили */
+        @media (max-width: 768px) {
+            .description {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+            #map {
+                height: 300px; /* Уменьшаем карту для мобильных устройств */
+            }
+        }
     </style>
     <!-- Подключаем библиотеку Leaflet для работы с картой -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -143,6 +154,7 @@
 
         // Карта Leaflet
         const map = L.map('map', {
+            preferCanvas: true, // Используем Canvas для улучшения производительности
             maxBounds: [
                 [-85, -180], // Границы карты (широта и долгота)
                 [85, 180]
