@@ -1,5 +1,50 @@
-/* Стили для кнопки "Узнать больше" */
-details summary {
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Шапка */
+.header {
+    background-color: #006400;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.header .title {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.header .subtitle {
+    font-size: 1.5rem;
+    margin: 10px 0 0;
+    font-style: italic;
+}
+
+/* Основной контент */
+.main-content {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.main-content .description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.main-content .btn {
     display: inline-block;
     padding: 10px 20px;
     font-size: 1rem;
@@ -7,21 +52,30 @@ details summary {
     background-color: #006400;
     text-decoration: none;
     border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
     transition: background-color 0.3s;
 }
 
-details summary:hover {
+.main-content .btn:hover {
     background-color: #228b22;
 }
 
-/* Стили для текста внутри details */
-details p {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+/* Скрытый текст (по умолчанию) */
+#moreInfo {
+    display: none;
+    margin-top: 20px;
+    font-size: 1rem;
     color: #555;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Футер */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
 }
