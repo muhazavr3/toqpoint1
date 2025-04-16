@@ -59,6 +59,26 @@ body {
     background-color: #228b22;
 }
 
+/* Скрытый текст (по умолчанию) */
+#moreInfo {
+    display: none;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #555;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Видимый текст */
+#moreInfo.visible {
+    display: block;
+    opacity: 1;
+}
+
 /* Футер */
 .footer {
     background-color: #333;
