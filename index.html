@@ -58,7 +58,17 @@
         .btn:hover {
             background-color: #0056b3;
         }
+
+        /* Стили для карты */
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
     </style>
+    <!-- Подключаем библиотеку Leaflet для работы с картой -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <!-- Шапка -->
@@ -92,18 +102,6 @@
             <p class="description">
                 Наши установки поддерживают все популярные типы зарядок: для телефонов (USB, Type-C, Lightning), электросамокатов, электровелосипедов и даже электромобилей. Они оснащены монетоприёмниками, оплатой через Kaspi, экранами для показа полезной информации и рекламы, а также лавочками — чтобы не только зарядиться энергией, но и просто отдохнуть.
             </p>
-            <p class="description">
-                <strong>TOQPOINT</strong> — это решение для городов, сёл, парков, университетов, вокзалов и торговых центров. Это часть умной экосистемы, направленной на повышение качества жизни и цифровую интеграцию общества. Мы уверены, что будущее принадлежит тем, кто умеет делать технологии доступными каждому.
-            </p>
-            <p class="description">
-                Наша цель — охватить весь Казахстан и выйти на международный рынок. Мы стремимся к тому, чтобы <strong>TOQPOINT</strong> стал таким же привычным элементом городской среды, как уличное освещение или автобусные остановки. В каждом районе, в каждом городе — точка, где можно зарядить не только устройство, но и себя.
-            </p>
-            <p class="description">
-                <strong>TOQPOINT</strong> — это экономические возможности для бизнеса, реклама с охватом в оффлайн-пространстве, устойчивое развитие и забота об окружающей среде. Это шаг навстречу цифровой трансформации, поддержка мобильности, и, самое главное — это забота о людях.
-            </p>
-            <p class="description">
-                <strong>TOQPOINT</strong> — это не просто зарядка. Это символ прогресса. Это энергия будущего. Это вклад в лучшее завтра. <strong>TOQPOINT</strong> — Toq Bar – Problem Joq!
-            </p>
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn" target="_blank">Узнать больше</a>
         </main>
     </div>
@@ -120,12 +118,9 @@
     </div>
 
     <div id="links" class="tab-content">
-        <h2>Полезные ссылки</h2>
-        <ul>
-            <li><a href="#support" class="tab-link" data-tab="support">Поддержать автора</a></li>
-            <li><a href="https://www.google.com/maps" target="_blank">Карты Google</a></li>
-            <li><a href="https://github.com/muhazavr3/toqpoint1" target="_blank">Репозиторий Toqpoint</a></li>
-        </ul>
+        <h2>Местоположение Toqpoint</h2>
+        <p>Вы можете отметить, где находится ваш Toqpoint, на карте ниже:</p>
+        <div id="map"></div>
     </div>
 
     <div id="support" class="tab-content">
@@ -158,13 +153,18 @@
             });
         });
 
-        // Для ссылок внутри вкладок
-        document.querySelectorAll('.tab-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const tabName = link.getAttribute('data-tab');
-                document.querySelector(`.tab[data-tab="${tabName}"]`).click();
-            });
+        // Инициализация карты Leaflet
+        const map = L.map('map').setView([51.1657, 10.4515], 5); // Координаты по умолчанию (Европа)
+
+        // Добавляем слой карты (OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Добавляем возможность ставить маркеры
+        map.on('click', function(e) {
+            const marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+            marker.bindPopup("Toqpoint здесь!").openPopup();
         });
     </script>
 </body>
