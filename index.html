@@ -7,26 +7,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="title">Toqpoint</h1>
-            <p class="subtitle">Toq bar - problem joq</p>
-        </div>
-    </header>
-    <main class="main-content">
-        <div class="container">
-            <p class="description">
-                Этот стартап предназначен для всеобщего блага, чтобы облегчить жизнь простым гражданам. 
-                По этому я представляю вам <strong>Toqpoint</strong> — универсальная модель, способная упростить жизнь и заработать на этом. 
-                Toqpoint — будущее для всего.
+    <div class="container">
+        <h1>Toqpoint</h1>
+        <h2>Toq bar - problem joq</h2>
+        <p>
+            Toqpoint — это универсальная зарядочная станция, созданная для удобства и доступности.  
+            <strong>Телефоны:</strong> компактное устройство, заменяющее множество шнуров (Type-C, Lightning, USB).  
+            <strong>Транспорт:</strong> уличные зарядные станции для электромобилей, электросамокатов, электровелосипедов и других устройств.  
+        </p>
+        <a href="#" class="btn" id="learnMoreBtn">Узнать больше</a>
+        <div id="moreInfo" style="display: none; margin-top: 20px;">
+            <p>
+                Каждую такую зарядочную станцию может купить любой желающий и установить её там, где хочет, чтобы заработать.  
+                Вы можете договариваться с кафе, торговыми центрами, парками или другими компаниями, чтобы разместить станции в удобных местах, и получать доход с их использования.  
             </p>
-            <a href="#" class="btn">Узнать больше</a>
         </div>
-    </main>
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Toqpoint. Все права защищены.</p>
-        </div>
-    </footer>
+    </div>
+
+    <script>
+        // Добавляем интерактивность для кнопки "Узнать больше"
+        const learnMoreBtn = document.getElementById('learnMoreBtn');
+        const moreInfo = document.getElementById('moreInfo');
+
+        learnMoreBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Отключаем стандартное поведение ссылки
+            if (moreInfo.style.display === 'none') {
+                moreInfo.style.display = 'block'; // Показываем текст
+                learnMoreBtn.textContent = 'Скрыть'; // Меняем текст кнопки
+            } else {
+                moreInfo.style.display = 'none'; // Скрываем текст
+                learnMoreBtn.textContent = 'Узнать больше'; // Возвращаем текст кнопки
+            }
+        });
+    </script>
 </body>
 </html>
