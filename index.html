@@ -6,7 +6,32 @@
     <title>Toqpoint</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Стили контактов в шапке */
+        /* Стили для вкладок */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            background-color: #f9f9f9;
+        }
+        .tab.active {
+            background-color: #fff;
+            font-weight: bold;
+            border-top: 2px solid #333;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Контакты в шапке */
         .header-contacts {
             position: absolute;
             top: 10px;
@@ -33,17 +58,15 @@
         </div>
     </header>
 
-    <!-- Навигационное меню -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="#home">Главная</a></li>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#links">Полезные ссылки</a></li>
-        </ul>
-    </nav>
+    <!-- Вкладки -->
+    <div class="tabs">
+        <div class="tab active" data-tab="home">Главная</div>
+        <div class="tab" data-tab="about">О нас</div>
+        <div class="tab" data-tab="links">Полезные ссылки</div>
+    </div>
 
-    <!-- Главная -->
-    <section id="home">
+    <!-- Содержимое вкладок -->
+    <div id="home" class="tab-content active">
         <main class="main-content">
             <p class="description">
                 <strong>TOQPOINT</strong> — это больше, чем просто стартап. Это движение. Это шаг вперёд в сторону удобства, технологичности и заботы о людях. 
@@ -55,10 +78,9 @@
             </p>
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn">Узнать больше</a>
         </main>
-    </section>
+    </div>
 
-    <!-- О нас -->
-    <section id="about" class="main-content">
+    <div id="about" class="tab-content">
         <h2>О нас</h2>
         <p class="description">
             <strong>TOQPOINT</strong> — это зарядные станции нового поколения, которые объединяют удобство, технологичность и доступность. 
@@ -67,21 +89,38 @@
         <p class="description">
             Наша цель — охватить весь Казахстан и выйти на международный рынок. Мы хотим, чтобы TOQPOINT стал таким же привычным элементом городской среды, как уличное освещение или автобусные остановки.
         </p>
-    </section>
+    </div>
 
-    <!-- Полезные ссылки -->
-    <section id="links" class="main-content">
+    <div id="links" class="tab-content">
         <h2>Полезные ссылки</h2>
         <ul>
             <li><a href="https://kaspi.kz" target="_blank">Оплата через Kaspi</a></li>
             <li><a href="https://www.google.com/maps" target="_blank">Карты Google</a></li>
             <li><a href="https://github.com/muhazavr3/toqpoint1" target="_blank">Репозиторий Toqpoint</a></li>
         </ul>
-    </section>
+    </div>
 
     <!-- Футер -->
     <footer class="footer">
         <p>2025 Toqpoint. Все права защищены.</p>
     </footer>
+
+    <!-- Скрипт для переключения вкладок -->
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Удаляем активные классы
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                // Добавляем активный класс для выбранной вкладки
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
