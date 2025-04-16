@@ -40,7 +40,7 @@
         }
         .header-contacts a {
             display: block;
-            color: #333;
+            color: white; /* Белый цвет контактов */
             text-decoration: none;
             margin: 5px 0;
         }
@@ -63,6 +63,7 @@
         <div class="tab active" data-tab="home">Главная</div>
         <div class="tab" data-tab="about">О нас</div>
         <div class="tab" data-tab="links">Полезные ссылки</div>
+        <div class="tab" data-tab="support">Поддержать автора</div>
     </div>
 
     <!-- Содержимое вкладок -->
@@ -94,10 +95,15 @@
     <div id="links" class="tab-content">
         <h2>Полезные ссылки</h2>
         <ul>
-            <li><a href="https://kaspi.kz" target="_blank">Оплата через Kaspi</a></li>
+            <li><a href="#support" class="tab-link" data-tab="support">Поддержать автора</a></li>
             <li><a href="https://www.google.com/maps" target="_blank">Карты Google</a></li>
             <li><a href="https://github.com/muhazavr3/toqpoint1" target="_blank">Репозиторий Toqpoint</a></li>
         </ul>
+    </div>
+
+    <div id="support" class="tab-content">
+        <h2>Поддержать автора</h2>
+        <p>Извините, это лишь школьный проект. 😔</p>
     </div>
 
     <!-- Футер -->
@@ -119,6 +125,15 @@
                 // Добавляем активный класс для выбранной вкладки
                 tab.classList.add('active');
                 document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Для ссылок внутри вкладок
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tabName = link.getAttribute('data-tab');
+                document.querySelector(.tab[data-tab="${tabName}"]).click();
             });
         });
     </script>
