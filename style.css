@@ -1,22 +1,69 @@
-body::before,
-body::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 10%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1;
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
 }
 
-body::before {
-    left: 0;
-    background-image: url('path_to/ornament_right.png'); /* Правая часть орнамента для левой стороны */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-body::after {
-    right: 0;
-    background-image: url('path_to/ornament_left.png'); /* Левая часть орнамента для правой стороны */
+/* Шапка */
+.header {
+    background-color: #006400;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.header .title {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.header .subtitle {
+    font-size: 1.5rem;
+    margin: 10px 0 0;
+    font-style: italic;
+}
+
+/* Основной контент */
+.main-content {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.main-content .description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.main-content .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #006400;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.main-content .btn:hover {
+    background-color: #228b22;
+}
+
+/* Футер */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
 }
