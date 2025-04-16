@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toqpoint</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Подключение вашего style.css -->
 </head>
 <body>
     <div class="container">
@@ -15,30 +15,15 @@
             <strong>Телефоны:</strong> компактное устройство, заменяющее множество шнуров (Type-C, Lightning, USB).  
             <strong>Транспорт:</strong> уличные зарядные станции для электромобилей, электросамокатов, электровелосипедов и других устройств.  
         </p>
-        <a href="#" class="btn" id="learnMoreBtn">Узнать больше</a>
-        <div id="moreInfo" style="display: none; margin-top: 20px;">
+
+        <!-- Кнопка "Узнать больше" с раскрывающимся текстом -->
+        <details>
+            <summary class="btn">Узнать больше</summary>
             <p>
                 Каждую такую зарядочную станцию может купить любой желающий и установить её там, где хочет, чтобы заработать.  
                 Вы можете договариваться с кафе, торговыми центрами, парками или другими компаниями, чтобы разместить станции в удобных местах, и получать доход с их использования.  
             </p>
-        </div>
+        </details>
     </div>
-
-    <script>
-        // Добавляем интерактивность для кнопки "Узнать больше"
-        const learnMoreBtn = document.getElementById('learnMoreBtn');
-        const moreInfo = document.getElementById('moreInfo');
-
-        learnMoreBtn.addEventListener('click', function(event) {
-            event.preventDefault(); // Отключаем стандартное поведение ссылки
-            if (moreInfo.style.display === 'none') {
-                moreInfo.style.display = 'block'; // Показываем текст
-                learnMoreBtn.textContent = 'Скрыть'; // Меняем текст кнопки
-            } else {
-                moreInfo.style.display = 'none'; // Скрываем текст
-                learnMoreBtn.textContent = 'Узнать больше'; // Возвращаем текст кнопки
-            }
-        });
-    </script>
 </body>
 </html>
