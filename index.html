@@ -145,25 +145,25 @@
         // Карта Leaflet
         const map = L.map('map', {
             maxBounds: [
-                [-90, -180],
-                [90, 180]
+                [-85, -180], // Границы карты (широта и долгота)
+                [85, 180]
             ],
-            maxBoundsViscosity: 1.0
+            maxBoundsViscosity: 1.0 // Вязкость (ограничивает плавное движение за пределы)
         }).setView([51.1657, 10.4515], 5);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        map.on('click', function(e) {
+        map.on('click', function (e) {
             const marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
             marker.bindPopup("Toqpoint здесь!<br><button class='delete-btn'>Удалить</button>").openPopup();
 
-            marker.on('popupopen', function() {
+            marker.on('popupopen', function () {
                 const deleteBtn = document.querySelector('.delete-btn');
                 if (deleteBtn) {
-                    deleteBtn.addEventListener('click', function() {
-                        const currentUser = "muhazavr3";
+                    deleteBtn.addEventListener('click', function () {
+                        const currentUser = "muhazavr3"; // Ваш логин
                         if (currentUser === "muhazavr3") {
                             map.removeLayer(marker);
                         } else {
