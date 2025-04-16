@@ -4,69 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toqpoint</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f3e5ab, #f5deb3);
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 800px;
-            padding: 20px;
-            border-radius: 10px;
-            background: #fff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .container h1 {
-            color: #006400;
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .container h2 {
-            color: #8b0000;
-            font-style: italic;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .container p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            color: #fff;
-            background-color: #006400;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #228b22;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Toqpoint</h1>
-        <h2>Toq bar - problem joq</h2>
-        <p>Этот стартап предназначен для всеобщего блага, чтобы облегчить жизнь простым гражданам. По этому я представляю вам <strong>Toqpoint</strong> — универсальная модель, способная упростить жизнь и заработать на этом. Toqpoint — будущее для всего.</p>
-        <a href="#" class="btn">Узнать больше</a>
-    </div>
+    <header class="header">
+        <div class="container">
+            <h1 class="title">Toqpoint</h1>
+            <p class="subtitle">Toq bar - problem joq</p>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <p class="description">
+                Этот стартап предназначен для всеобщего блага, чтобы облегчить жизнь простым гражданам. 
+                По этому я представляю вам <strong>Toqpoint</strong> — универсальная модель, способная упростить жизнь и заработать на этом. 
+                Toqpoint — будущее для всего.
+            </p>
+            <a href="#" class="btn">Узнать больше</a>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Toqpoint. Все права защищены.</p>
+        </div>
+    </footer>
 </body>
 </html>
