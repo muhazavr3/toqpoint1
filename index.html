@@ -99,9 +99,6 @@
             <p class="description">
                 Мы создали <strong>TOQPOINT</strong> с мыслью о каждом человеке — будь то студент, спешащий на пары, водитель такси, ожидающий клиента, родитель с ребёнком, путешественник или просто прохожий. <strong>TOQPOINT</strong> — это современная уличная зарядная станция, совмещающая в себе простоту использования, надёжность, энергоэффективность и универсальность.
             </p>
-            <p class="description">
-                Наши установки поддерживают все популярные типы зарядок: для телефонов (USB, Type-C, Lightning), электросамокатов, электровелосипедов и даже электромобилей. Они оснащены монетоприёмниками, оплатой через Kaspi, экранами для показа полезной информации и рекламы, а также лавочками — чтобы не только зарядиться энергией, но и просто отдохнуть.
-            </p>
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn" target="_blank">Узнать больше</a>
         </main>
     </div>
@@ -111,9 +108,6 @@
         <p class="description">
             <strong>TOQPOINT</strong> — это зарядные станции нового поколения, которые объединяют удобство, технологичность и доступность. 
             Мы стремимся сделать TOQPOINT неотъемлемой частью городской инфраструктуры и улучшить качество жизни.
-        </p>
-        <p class="description">
-            Наша цель — охватить весь Казахстан и выйти на международный рынок. Мы хотим, чтобы TOQPOINT стал таким же привычным элементом городской среды, как уличное освещение или автобусные остановки.
         </p>
     </div>
 
@@ -133,38 +127,51 @@
         <p>2025 Toqpoint. Все права защищены.</p>
     </footer>
 
-    <!-- Скрипт для переключения вкладок -->
+    <!-- Скрипт для работы вкладок и карты -->
     <script>
-        // Получаем все вкладки и содержимое вкладок
+        // Вкладки
         const tabs = document.querySelectorAll('.tab');
         const contents = document.querySelectorAll('.tab-content');
 
-        // Добавляем обработчик событий для каждой вкладки
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Удаляем активные классы со всех вкладок и содержимого
                 tabs.forEach(t => t.classList.remove('active'));
                 contents.forEach(c => c.classList.remove('active'));
-
-                // Добавляем активный класс для выбранной вкладки
                 tab.classList.add('active');
-                const target = tab.dataset.tab; // Получаем идентификатор вкладки
-                document.getElementById(target).classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
             });
         });
 
-        // Инициализация карты Leaflet
-        const map = L.map('map').setView([51.1657, 10.4515], 5); // Координаты по умолчанию (Европа)
+        // Карта Leaflet
+        const map = L.map('map', {
+            maxBounds: [
+                [-90, -180],
+                [90, 180]
+            ],
+            maxBoundsViscosity: 1.0
+        }).setView([51.1657, 10.4515], 5);
 
-        // Добавляем слой карты (OpenStreetMap)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Добавляем возможность ставить маркеры
         map.on('click', function(e) {
             const marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
-            marker.bindPopup("Toqpoint здесь!").openPopup();
+            marker.bindPopup("Toqpoint здесь!<br><button class='delete-btn'>Удалить</button>").openPopup();
+
+            marker.on('popupopen', function() {
+                const deleteBtn = document.querySelector('.delete-btn');
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', function() {
+                        const currentUser = "muhazavr3";
+                        if (currentUser === "muhazavr3") {
+                            map.removeLayer(marker);
+                        } else {
+                            alert("Вы не можете удалить эту метку!");
+                        }
+                    });
+                }
+            });
         });
     </script>
 </body>
