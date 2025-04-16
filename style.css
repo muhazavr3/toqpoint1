@@ -2,24 +2,17 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
     color: #333;
     line-height: 1.6;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    background-color: #fff;
 }
 
 /* Шапка */
 .header {
-    background-color: #006400;
+    background-color: #006400; /* Зеленый фон */
     color: #fff;
-    padding: 40px 0;
     text-align: center;
+    padding: 40px 20px;
 }
 
 .header .title {
@@ -29,52 +22,41 @@ body {
 
 .header .subtitle {
     font-size: 1.5rem;
-    margin: 10px 0 0;
+    margin-top: 10px;
     font-style: italic;
 }
 
 /* Основной контент */
 .main-content {
-    padding: 40px 0;
     text-align: center;
+    padding: 40px 20px;
+    background-color: #fff; /* Белый фон */
 }
 
 .main-content .description {
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .main-content .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 15px 30px;
     font-size: 1rem;
     color: #fff;
-    background-color: #006400;
+    background-color: #006400; /* Зеленая кнопка */
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 .main-content .btn:hover {
-    background-color: #228b22;
-}
-
-/* Скрытый текст (по умолчанию) */
-#moreInfo {
-    display: none;
-    margin-top: 20px;
-    font-size: 1rem;
-    color: #555;
-    background-color: #f0f0f0;
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+    background-color: #228b22; /* Светлее при наведении */
 }
 
 /* Футер */
 .footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #f4f4f4; /* Серый фон */
+    color: #333;
     text-align: center;
     padding: 20px 0;
     font-size: 0.9rem;
